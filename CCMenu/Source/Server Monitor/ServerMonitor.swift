@@ -14,6 +14,8 @@ class ServerMonitor {
     private var networkMonitor: NetworkMonitor
     private var subscribers: [AnyCancellable] = []
     private var lastPoll = Date.distantPast
+    private let FiveMinutesInSeconds : Double = 300
+    private let TenSeconds : Double = 300
 
     init(model: PipelineModel) {
         self.model = model
@@ -23,10 +25,10 @@ class ServerMonitor {
     private var pollInterval: Double {
         if networkMonitor.isExpensiveConnection || networkMonitor.isLowDataConnection {
             let v = UserDefaults.active.integer(forKey: DefaultsKey.pollIntervalLowData.rawValue)
-            return (v != 0) ? Double(v) : 300
+            return (v != 0) ? Double(v) : FiveMinutesInSeconds
         } else {
             let v = UserDefaults.active.integer(forKey: DefaultsKey.pollInterval.rawValue)
-            return (v > 0) ? Double(v) : 10
+            return (v > 0) ? Double(v) : TenSeconds
         }
     }
 

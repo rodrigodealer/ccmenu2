@@ -104,6 +104,8 @@
 		3CB911D72B78E891009DF781 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB911D62B78E891009DF781 /* URLRequestExtension.swift */; };
 		3CB911D92B78EB3F009DF781 /* URLRequestExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB911D82B78EB3F009DF781 /* URLRequestExtensionTests.swift */; };
 		3CC483472BDE955C00E4730F /* PipelineSheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC483462BDE955C00E4730F /* PipelineSheetConfig.swift */; };
+		5BA3F64D2CA14C840015D6F2 /* CircleCIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3F64C2CA14C7E0015D6F2 /* CircleCIAPI.swift */; };
+		5BFFFB082CA04A6C000C3B88 /* AddCircleCIPipelineSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFFFB072CA04A6C000C3B88 /* AddCircleCIPipelineSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,8 @@
 		3CB911D62B78E891009DF781 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		3CB911D82B78EB3F009DF781 /* URLRequestExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensionTests.swift; sourceTree = "<group>"; };
 		3CC483462BDE955C00E4730F /* PipelineSheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineSheetConfig.swift; sourceTree = "<group>"; };
+		5BA3F64C2CA14C7E0015D6F2 /* CircleCIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCIAPI.swift; sourceTree = "<group>"; };
+		5BFFFB072CA04A6C000C3B88 /* AddCircleCIPipelineSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCircleCIPipelineSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +432,7 @@
 		03CC11E02652F06F00130833 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5BFFFB042CA049BE000C3B88 /* CircleCI */,
 				03CC11DF2652F02100130833 /* App */,
 				03CC11E12652F08300130833 /* Model */,
 				03CC11E22652F09800130833 /* Menu Bar Extra */,
@@ -526,6 +531,7 @@
 		03CC11E82652F38A00130833 /* Server Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				5BA3F64C2CA14C7E0015D6F2 /* CircleCIAPI.swift */,
 				03CC11E92652F49100130833 /* ServerMonitor.swift */,
 				03CC11EF2652F70800130833 /* CCTrayFeedReader.swift */,
 				03CC11F1265467C200130833 /* CCTrayResponseParser.swift */,
@@ -543,6 +549,14 @@
 				3C95D3502BAC601C007AED1E /* ServerMonitorIntegrationTests.swift */,
 			);
 			path = CCMenuIntegrationTests;
+			sourceTree = "<group>";
+		};
+		5BFFFB042CA049BE000C3B88 /* CircleCI */ = {
+			isa = PBXGroup;
+			children = (
+				5BFFFB072CA04A6C000C3B88 /* AddCircleCIPipelineSheet.swift */,
+			);
+			path = CircleCI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,8 +650,9 @@
 		03BD7E7D2598E578000F9495 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					03BD7E842598E578000F9495 = {
 						CreatedOnToolsVersion = 12.3;
@@ -762,6 +777,7 @@
 				038FF7182BB631CB0017CD4C /* URLComponentsExtension.swift in Sources */,
 				03825DF2259D01C600DEB003 /* PipelineRow.swift in Sources */,
 				0362EBED2B521BD50079DEFE /* NotificationFactory.swift in Sources */,
+				5BA3F64D2CA14C840015D6F2 /* CircleCIAPI.swift in Sources */,
 				03CC61D12BA783EE0008EE76 /* NetworkMonitor.swift in Sources */,
 				03825DE3259CFF0A00DEB003 /* Pipeline.swift in Sources */,
 				03F31D0225B8D5F0005299A8 /* AdvancedSettings.swift in Sources */,
@@ -794,6 +810,7 @@
 				03F682FD25C73584005D56D9 /* EditPipelineSheet.swift in Sources */,
 				3C9E0E532B9F143A00327CB9 /* NSApplicationExtension.swift in Sources */,
 				035F86FE2BB37A6600AD1D68 /* CCTrayAuthView.swift in Sources */,
+				5BFFFB082CA04A6C000C3B88 /* AddCircleCIPipelineSheet.swift in Sources */,
 				03D4BB03265EE5840023F4CB /* GitHubFeedReader.swift in Sources */,
 				035F87022BB3829300AD1D68 /* PipelineListMenu.swift in Sources */,
 				03DA98DC2B4498BB0073F5BB /* GitHubRepositoryList.swift in Sources */,
@@ -1055,7 +1072,6 @@
 		03BD7EB22598E57A000F9495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1081,7 +1097,6 @@
 		03BD7EB32598E57A000F9495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1107,7 +1122,6 @@
 		03BD7EB52598E57A000F9495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCMenuUITests/CCMenuUITests.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1132,7 +1146,6 @@
 		03BD7EB62598E57A000F9495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCMenuUITests/CCMenuUITests.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1311,7 +1324,6 @@
 		3C95D35E2BAC6DE3007AED1E /* Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1369,7 +1381,6 @@
 		3C95D3602BAC6DE3007AED1E /* Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCMenuUITests/CCMenuUITests.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
